@@ -1,38 +1,49 @@
+function Users(id, firstName, lastName, birthday, gender ){
+    this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.birthday = birthday;
+    this.gender = gender; 
+}
 
-function randomAge(){
-    let age= 0;
-    age = Math.random() * 20 +20;
+function randomAge() {
+    let age = 0;
+    age =Math.floor(Math.random() * 20 + 20) ;
     return age;
 }
-function randomGender(){
+
+function randomGender() {
     let gender = 0;
-    let genderString = 'male';
-    gender = Math.floor(Math.random()*1)+1;
-    if(genderString=gender){
-        console.log('male')
-    } console.log('female')
-    return gender;
+    let genderString = 'male'
+    gender = Math.floor((Math.random() * 1) + 1);
+    genderString === 0 ? 'male' : 'female';
+    return genderString;
+   
 }
-let firstName=['A','B','C','D','E','F','G','H','I','K','L','P','N','M','V','S','X','Z','U','R'];
-let lastName=['A','B','C','D','E','F','G','H','I','K','L','P','N','M','V','S','X','Z','U','R'];
-function getItem(array){
-    let itemIndex=0;
+
+let firstNameList=['A','B','C','D','E','F','G','H','I','K','L','P','N','M','V','S','X','Z','U','R'];
+let lastNameList=['A','B','C','D','E','F','G','H','I','K','L','P','N','M','V','S','X','Z','U','R'];
+
+function getItem(array) {
+    let itemIndex = 0;
     const maxItem = array.length;
-    itemIndex = Math.floor(Math.random()* maxItem);
+    itemIndex = Math.floor(Math.random() * maxItem);
     return array[itemIndex];
 }
-function getListUser(){
+
+function getListUser() {
     let listUsers = [];
-    for(let i=0;i<40;i++){
+    for(let i =0; i < 40; i++) {
         let user = {
-            id: i,
-            firstName: getItem(firstName),
-            lastName: getItem(lastName),
+            id : i, 
+            firstName: getItem(firstNameList), 
+            lastName: getItem(lastNameList), 
             birthday: randomAge(),
-            gender: randomGender()
+            gender: randomGender() 
         }
-        listUsers.push(user);
-    }
-    console.log('listUsers',listUsers);
-    return listUsers;
+
+    listUsers.push(user);
 }
+    console.log(listUsers);
+}
+getListUser()
